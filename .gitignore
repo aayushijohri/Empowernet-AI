@@ -1,0 +1,102 @@
+# =============================================================================
+# EmpowerNet AI — .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+.Python
+env/
+venv/
+.venv/
+ENV/
+.env
+!.env.example
+*.log
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+*.junit.xml
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# -----------------------------------------------------------------------------
+# Node / Frontend
+# -----------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite build output
+frontend/dist/
+frontend/.vite/
+dist/
+
+# -----------------------------------------------------------------------------
+# Temporary & Runtime Files
+# -----------------------------------------------------------------------------
+# Audio/video processing artefacts
+temp_audio_*.tmp
+temp_audio_*.wav
+temp_video*.mp4
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# Blockchain Simulation Store (generated at runtime)
+# -----------------------------------------------------------------------------
+backend/blockchain/simulated_blockchain.json
+
+# -----------------------------------------------------------------------------
+# ML Models (large binary files — download at runtime)
+# -----------------------------------------------------------------------------
+backend/ml/models/*.pth
+backend/ml/models/*.bin
+backend/ml/models/*.onnx
+*.pkl
+
+# -----------------------------------------------------------------------------
+# IDE / Editor
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+.docker/
+
+# -----------------------------------------------------------------------------
+# Secrets & Credentials
+# -----------------------------------------------------------------------------
+*.pem
+*.key
+secrets/
+credentials.json

@@ -44,42 +44,49 @@ It combines a React dashboard, FastAPI backend, Chrome Extension, machine learni
 ---
 
 ## Architecture
-
 ```mermaid
 flowchart LR
+
     subgraph Clients
-        A[React Dashboard]
-        B[Chrome Extension]
+        A["React Dashboard"]
+        B["Chrome Extension"]
     end
 
-    subgraph Backend["FastAPI Backend (port 8001)"]
-        C[/api/scan]
-        D[/realtime/video]
-        E[/realtime/audio]
-        F[/analyze/*]
+    subgraph Backend
+        C["/api/scan"]
+        D["/realtime/video"]
+        E["/realtime/audio"]
+        F["/analyze/*"]
     end
 
-    subgraph ML["ML Inference Layer"]
-        G[Text Pipeline]
-        H[Image Pipeline]
-        I[Audio Pipeline]
-        J[Video Pipeline]
+    subgraph ML
+        G["Text Pipeline"]
+        H["Image Pipeline"]
+        I["Audio Pipeline"]
+        J["Video Pipeline"]
     end
 
-    subgraph Evidence["Evidence Ledger"]
-        K[SHA-256 Hasher]
-        L[Blockchain Service\nSimulation / Polygon Amoy]
+    subgraph Evidence
+        K["SHA-256 Hasher"]
+        L["Blockchain Service (Simulation / Polygon Amoy)"]
     end
 
-    A --> Backend
-    B --> Backend
-    C --> ML
+    A --> C
+    B --> C
+    C --> G
+    C --> H
+    C --> I
+    C --> J
     D --> J
     E --> I
-    F --> ML
-    ML --> Evidence
-    Evidence --> Backend
+    F --> G
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+    K --> L
 ```
+
 
 ### ML Pipeline Detail
 
